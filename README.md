@@ -2,8 +2,6 @@
 
 # 🚀 Agent Coach By Glitching Gigas 🤖
 
-<img src="/api/placeholder/150/150" alt="Project Logo" />
-
 </div>
 
 This project demonstrates how to set up and run an AI application using Azure services.
