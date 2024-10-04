@@ -13,6 +13,10 @@ class AzureSpeechService:
         self.speech_config.speech_synthesis_voice_name = 'en-US-JennyNeural'
         self.recognize_audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
         self.synthesize_audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
+        self.synthesizer = speechsdk.SpeechSynthesizer(
+            speech_config=self.speech_config,
+            audio_config=self.synthesize_audio_config
+        )
 
     def get_recognizer(self):
         return speechsdk.SpeechRecognizer(
@@ -21,7 +25,9 @@ class AzureSpeechService:
         )
 
     def get_synthesizer(self):
-        return speechsdk.SpeechSynthesizer(
-            speech_config=self.speech_config,
-            audio_config=self.synthesize_audio_config
-        )
+        return self.synthesizer
+
+    def stop_speech(self):
+        """Stop any ongoing speech synthesis."""
+        if self.synthesizer:
+            self.synthesizer.stop_speaking()
