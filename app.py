@@ -1,10 +1,14 @@
 import streamlit as st
+import azure.cognitiveservices.speech as speechsdk  # Import Azure's speech SDK
 from core.document_loader import load_document
 from core.qa_chain import create_qa_chain
-from speech.recognition import recognize_from_microphone
 from speech.synthesis import synthesize_speech, stop_speech
+from core.azure_services import AzureSpeechService
 from utils.helpers import handle_simple_questions
 import threading
+
+# Initialize Azure Speech Service
+azure_service = AzureSpeechService()
 
 
 # Cache document loading but exclude the FAISS object from hashing
@@ -31,6 +35,23 @@ def handle_conversations(qa_chain, user_input):
         return "I'm sorry, I couldn't find relevant information from the document."
 
 
+def recognize_from_azure():
+    """Use Azure's Speech Service to capture and transcribe speech from the microphone."""
+    speech_recognizer = azure_service.get_recognizer()
+
+    st.write("Listening... Speak into the microphone.")
+    try:
+        result = speech_recognizer.recognize_once_async().get()
+        if result.reason == speechsdk.ResultReason.RecognizedSpeech:
+            st.write(f"Recognized: {result.text}")
+            return result.text
+        else:
+            st.write("Sorry, I couldn't understand the audio.")
+    except Exception as e:
+        st.write(f"Error during speech recognition: {str(e)}")
+    return None
+
+
 def speech_synthesis_thread(response):
     try:
         synthesize_speech(response)
@@ -39,7 +60,7 @@ def speech_synthesis_thread(response):
 
 
 def main():
-    st.title("Debt Collection AI ChatBot")
+    st.title("CLAIRE - Your Agent Coach")
     st.write("Ask me anything about debt collection.")
 
     # Cache document loading
@@ -63,6 +84,14 @@ def main():
         st.write(f"ChatBot: {response}")
     elif st.session_state.response:
         st.write(f"ChatBot: {st.session_state.response}")
+
+    # Microphone Input using Azure's Speech-to-Text service
+    if st.button("Use Microphone"):
+        user_input = recognize_from_azure()
+        if user_input:
+            response = handle_conversations(qa_chain, user_input)
+            st.session_state.response = response
+            st.write(f"ChatBot: {response}")
 
     # Speech synthesis for responses
     if st.session_state.response:
