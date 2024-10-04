@@ -61,8 +61,8 @@ For more details about the project, its dependencies, or troubleshooting, please
 
 ---
 
-Made with ❤️ by Your Team Name
+Made with ❤️ by Glitching Gigasa
 
-[🌐 Website](https://example.com) | [📧 Contact Us](mailto:contact@example.com)
+[🌐 Jaswant](mailto:jaswant@dpdzero.com) | [🌐 Om](mailto:om@dpdzero.com)
 
 </div>
