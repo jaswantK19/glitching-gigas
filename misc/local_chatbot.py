@@ -92,7 +92,7 @@ def handle_conversations(qa_chain):
 
 if __name__ == "__main__":
     # Load your document (e.g., 'loan-recovery.txt')
-    vectorstore = load_document("loan-recovery.txt")
+    vectorstore = load_document("../loan-recovery.txt")
 
     # Create a QA chain
     qa_chain = create_qa_chain(vectorstore)
