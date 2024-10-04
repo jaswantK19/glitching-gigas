@@ -1,8 +1,14 @@
-# Azure AI Project
+<div align="center">
+
+# 🚀 Azure AI Project 🤖
+
+<img src="/api/placeholder/150/150" alt="Project Logo" />
+
+</div>
 
 This project demonstrates how to set up and run an AI application using Azure services.
 
-## Setup Instructions
+## 🛠️ Setup Instructions
 
 ### 1. Create a Virtual Environment
 
@@ -31,11 +37,11 @@ Replace `<Your Azure Subscription ID>` and `<Your Azure Region>` with your actua
 pip install -r requirements.txt
 ```
 
-## Running the Project
+## 🚀 Running the Project
 
-1. Create a text document to serve as context for the AI application.
+1. 📄 Create a text document to serve as context for the AI application.
 
-2. In `main.py`, use the `load_document()` function to load your document:
+2. 💻 In `main.py`, use the `load_document()` function to load your document:
 
    ```python
    load_document('your_document.txt')
@@ -43,14 +49,22 @@ pip install -r requirements.txt
 
    Replace `'your_document.txt'` with the path to your context document.
 
-3. Run the application:
+3. 🏃‍♂️ Run the application:
 
    ```bash
    python3 main.py
    ```
 
-## Additional Information
+## 📚 Additional Information
 
 For more details about the project, its dependencies, or troubleshooting, please refer to the project documentation or contact the development team.
 
+<div align="center">
 
+---
+
+Made with ❤️ by Your Team Name
+
+[🌐 Website](https://example.com) | [📧 Contact Us](mailto:contact@example.com)
+
+</div>
