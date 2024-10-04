@@ -61,7 +61,7 @@ For more details about the project, its dependencies, or troubleshooting, please
 
 ---
 
-Made with ❤️ by Glitching Gigasa
+Made with ❤️ by Glitching Gigas
 
 [🌐 Jaswant](mailto:jaswant@dpdzero.com) | [🌐 Om](mailto:om@dpdzero.com)
 
