@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Azure AI Project 🤖
+# 🚀 Agent Coach By Glitching Gigas 🤖
 
 <img src="/api/placeholder/150/150" alt="Project Logo" />
 
